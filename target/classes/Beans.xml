@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--基于构造方法的依赖注入：ref、value、type、name、index-->
+    <bean id="person" class="com.young.spring.ioc.constructor.Person">
+        <constructor-arg ref="homeAddress"/>
+        <constructor-arg value="YangKun" type="java.lang.String"/>
+        <!--基本数据类型的type、index、name属性必须显式声明一个，不然resolvedValues.getArgumentValue方法无法获取-->
+        <constructor-arg value="25" type="int"/>
+    </bean>
+    <bean id="homeAddress" class="com.young.spring.ioc.constructor.HomeAddress">
+        <constructor-arg value="北京" index="0"/>
+        <constructor-arg value="北京" name="city"/>
+        <constructor-arg value="海淀区北清路68号" index="2"/>
+    </bean>
+</beans>
